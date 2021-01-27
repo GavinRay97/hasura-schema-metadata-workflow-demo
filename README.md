@@ -24,9 +24,12 @@ It is primarily an organizational/structure-based approach, and centers around c
 
 - Create a folder inside of `/hasura/models` for the entity you want to model, like `user` or `product`
   - Create a file called `table.sql` which has three sections, `/* TABLE */`, `/* FOREIGN KEYS */`, AND `/* TRIGGERS */`
-  - Underneath `/* TABLE */` put the table DDL, underneath `/* FOREIGN KEYS */` put FK's as `ALTER TABLE` statements, and underneath `/* TRIGGERS */` put triggers
+    - Underneath `/* TABLE */` put the table DDL
+    - Underneath `/* FOREIGN KEYS */` put FK's as `ALTER TABLE` statements
+    - Underneath `/* TRIGGERS */` put triggers
   - Create a file called `table.yaml`, which has a single object of the same object type you find inside of the `/hasura/metadata/tables.yaml` list of tables, that contains the table's metadata
-- From `/hasura/models`, run `make generate_schema_and_tables_metadata` (this just calls both `make generate_sql` and `make generate_tables_yaml`)
+- From `/hasura/models`, run `make generate_schema_and_tables_metadata`
+  - (This just calls both `make generate_sql` and `make generate_tables_yaml`)
 - Now, you should have `/hasura/models/schema.sql` and `/hasura.models/tables.yaml`
 - Copy the `schema.sql` content over the content of `/hasura/migrations/01_INIT/up.sql`
 - Replace `tables.yaml` in `/hasura/metadata` with the newly generated one
