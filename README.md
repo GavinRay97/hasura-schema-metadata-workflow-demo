@@ -96,7 +96,7 @@ select_permissions:
 
 ## Directory Structure and Comments
 
-```sh-session
+```
 hasura-schema-metadata-workflow-demo/hasura on master
 ❯ tree
 .
@@ -116,11 +116,11 @@ hasura-schema-metadata-workflow-demo/hasura on master
 │       ├── down.sql
 │       └── up.sql              <-- Generated SQL schema from Makefile/Ruby script goes here
 ├── models
-│   ├── Makefile                <-- Run "make help" inside this directory to get a helptext
-│   ├── generate-sql.rb         <-- Script that generates combined SQL schema
+│   ├── Makefile                    <-- Run "make help" inside this directory to get a helptext
+│   ├── generate-sql.rb             <-- Script that generates combined SQL schema
 │   ├── generate-tables-metadata.rb <-- Script that generates combined tables.yaml metadata
-│   ├── schema.sql  <-- Output of script, to be copied over INIT migration
-│   ├── tables.yaml <-- Output of script to be copied over tables.yaml
+│   ├── schema.sql                  <-- Output of script, to be copied over INIT migration
+│   ├── tables.yaml                 <-- Output of script to be copied over tables.yaml
 │   ├── 00-Misc-SQL-Functions
 │   │   └── table.sql
 │   ├── address
