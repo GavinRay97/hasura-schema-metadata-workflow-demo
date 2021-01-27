@@ -1,0 +1,59 @@
+---
+- table:
+    name: address
+    schema: public
+  object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+  select_permissions:
+  - role: user
+    permission:
+      columns: "*"
+      filter:
+        user_id:
+          _eq: X-Hasura-User-Id
+- table:
+    name: category
+    schema: public
+  array_relationships:
+  - name: product_categories
+    using:
+      foreign_key_constraint_on:
+        table: product_category
+        column: category_id
+- table:
+    name: product
+    schema: public
+  array_relationships:
+  - name: product_categories
+    using:
+      foreign_key_constraint_on:
+        table: product_category
+        column: product_id
+- table:
+    name: product_category
+    schema: public
+  object_relationships:
+  - name: product
+    using:
+      foreign_key_constraint_on: product_id
+  - name: category
+    using:
+      foreign_key_constraint_on: category_id
+- table:
+    name: user
+    schema: public
+  array_relationships:
+  - name: addresses
+    using:
+      foreign_key_constraint_on:
+        table: address
+        column: user_id
+  select_permissions:
+  - role: user
+    permission:
+      columns: "*"
+      filter:
+        id:
+          _eq: X-Hasura-User-Id

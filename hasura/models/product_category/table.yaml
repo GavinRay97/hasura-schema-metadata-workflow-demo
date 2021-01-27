@@ -1,0 +1,13 @@
+table:
+  name: product_category
+  schema: public
+
+object_relationships:
+  - name: product
+    using:
+      foreign_key_constraint_on: product_id
+  - name: category
+    using:
+      foreign_key_constraint_on: category_id
+
+  
